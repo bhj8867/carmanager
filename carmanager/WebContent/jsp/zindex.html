@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>z-index</title>
+<style type="text/css">
+#a{
+	visibility:hidden;
+	border:1px dotted red;
+
+}
+#b{
+	visibility:visible;
+	borther : 1px dotted red;
+}
+
+
+img{
+	position:absolute;
+	/*z-index:-1; -1 :이미지가 배경으로 들어가게 된다 */
+	left:0px;
+	right:0px;
+	opacity:0.1;/* 숫자가 작아질수록 투명해진다.~1.0 */
+}
+img:hover{/* 마우스를 올려놓으면 원래 이미지로 나타남 */
+	opacity:1.0;
+}
+
+</style>
+
+</head>
+<body>
+<img alt="" src="../images/logo.jpg" width=200 height=200>
+<p>이미지 요소의 z-index를 활용한 예제</p>
+<p>이미지 요소의 z-index를 활용한 예제</p>
+<p>이미지 요소의 z-index를 활용한 예제</p>
+<p>이미지 요소의 z-index를 활용한 예제</p>
+<p>이미지 요소의 z-index를 활용한 예제</p>
+<p>이미지 요소의 z-index를 활용한 예제</p>
+<p>이미지 요소의 z-index를 활용한 예제</p>
+
+<img id=a alt="" src="../images/logo.jpg" width=200 height=200>
+<img id=b alt="" src="../images/logo.jpg" width=200 height=200>
+
+</body>
+</html>
