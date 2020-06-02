@@ -32,6 +32,9 @@ try{
 	
 	out.println(request.getParameter("id") + "<br>");
 	out.println(request.getParameter("name") + "<br>");
+	
+	
+	
 	out.println("등록되었습니다." + "<br>");
 	
 	if(request.getParameter("id")!=null){
@@ -40,10 +43,9 @@ try{
 }catch(Exception e){
 	out.print("DB연결 오류"+e);
 }
-
-
-
-
-
-
 %>
+<!-- 받아온 데이터 받아와서 출력 방법2-->
+<%=request.getParameter("id")%>
+
+
+
