@@ -9,15 +9,21 @@
 #logo {
 	float: left;
 	vertical-align: middle;
-	margin: 10px 0px 0 20px; /* 시계방향 */
+	margin: 10px 0px 5px 20px; /* 시계방향 */
 	color: darkblue;
 	font-size: 48px;
 }
 
 .right { /* span class=right */
 	float: right;
-	margin: 0 0 0 0;
-	padding: 30px 10px;
+	margin: 15px 0 0 0;
+	padding: 10px 10px;
+}
+
+.right1 { /* span class=right */
+	float: right;
+	margin: 25px 0 0 0;
+	padding: 10px 10px;
 }
 </style>
 </head>
@@ -36,7 +42,6 @@
 	
 	if(checkName==null){/* 로그아웃 상태 */
 	%>
-	
 		<a id="logo" href="index.jsp">카센터(붕붕이 나라)</a>		
 		<span class="right">
 			<form method="post" action="login.jsp">
@@ -59,7 +64,7 @@
 		
 		<a id="logo" href="index.jsp">카센터(붕붕이 나라)</a>		
 		<!-- 아이디 비번 입력하는 창대신에 로그아웃할 수 있는 창을 준다. -->
-		<span class="right">
+		<span class="right1">
 		<%=checkName%>님 환영합니다!
 		<a href="logout.jsp" >Logout</a>
 		<a href="member_form.jsp">회원가입</a>		

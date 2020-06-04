@@ -89,6 +89,7 @@ div>img {
 		<li><a href="list.jsp">고객정보 목록</a></li>
 		<li><a href="#">부품정보 목록</a></li>
 		<li><a href="list.jsp">회원정보 목록</a></li>
+		<li><a href="boardlist.jsp">게시판</a></li>
 		<li><a href="index.jsp">홈으로</a></li>
 		</ul>
 	</nav>
