@@ -12,14 +12,14 @@
 <title>customer manage</title>
 
 <style>
-caption {
-	font-size: 20px;
-	align: center;
-}
 
+caption{
+	font-size:30px;
+	align:center;
+}
 nav {
-	margin: 0 0 10px 0;
-	padding: 0 0 10px 0;
+	margin: 0 0 10px 0; /* footer,content 영역간의 간격  */
+	padding: 0 0 10px 0; /* nav 자체의 간격 */
 	float: left;
 	width: 100%;
 	background-color: aqua;
@@ -34,9 +34,11 @@ nav ul {
 }
 
 nav ul li {
+	display:inline; 
+	/* list-style: none;  */
 	float: left;
-	margin: 0 10px;
-	list-style: none;
+	margin: 0 5px;
+	
 }
 
 nav a {
@@ -52,7 +54,6 @@ nav a {
 .section {
 	height: 580px;
 	width: 100%;
-	clear: both;
 }
 
 div>img {
@@ -65,7 +66,6 @@ div>img {
 
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-
 	<nav>
 		<ul>
 			<li><a href="info.jsp">회사소개</a></li>
@@ -73,12 +73,28 @@ div>img {
 			<li><a href="#">부품정보 등록</a></li>
 			<li><a href="#">고객정보 목록</a></li>
 			<li><a href="#">부품정보 목록</a></li>
-			<li><a href="#">홈으로</a></li>
+			<li><a href="list.jsp">회원정보 목록</a></li>
+			<li><a href="index.jsp#">홈으로</a></li>
 		</ul>
 	</nav>
 
 	<div class="section">
 
+	<!-- 세션값이 없다면 로그인 안한 기본 상태,먼저 로그인 하라는 경고창을 띄운다 -->
+	
+	<%String checkName="";/* checkName변수선언, 로그인하면 세션값이 있다 ->세션값이 없는 상태는 초기상태(아이디 비번 입력하는 기본창),세션값이 있는 상태  로그인인지 아닌지 확인하는 단계*/
+	checkName=(String)session.getAttribute("s_name");/* 세션값을 s_name으로 가져온다 */
+	/* checkName="홍길동";->강제로 값을 넘기는 test */
+	if(checkName==null){/* 로그아웃 상태 */
+	%><!-- jsp끝,html시작-->
+
+	<script>
+		alert("먼저 로그인 하세요.");
+		history.back();/* 이전 페이지로 돌아가는 메소드 */
+	</script>
+	
+	<!-- 세션값이 있다면 : 로그인한 상태라면  회원리스트를 보여준다.기존에 작성한 리스트 위에 else-->
+	<% } else {%>
 		<form name="list" action="">
 			<table border="1">
 				<caption>회원정보 리스트</caption>
@@ -127,19 +143,16 @@ div>img {
 					<td><%=rs.getString(9)%></td>
 					<td><%=rs.getString(10)%></td>
 				</tr>
-				<%
-					}
-				%>
-
-
+				<%}%>
+				
 			</table>
-
-
 		</form>
+		
+		<!-- else에 해당하는 마침 괄호 div안, 시작한 곳의 안 -->
+		<%} %>
+		
 	</div>
 	<jsp:include page="footer.jsp"></jsp:include>
-
-
 
 </body>
 </html>

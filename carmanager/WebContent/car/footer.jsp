@@ -7,10 +7,10 @@
 <title>footer</title>
 <style>
 footer { /* footer전체 스타일 */
+	clear:both;
 	height: 70px;
-	background-color: gray;
-	font-size
-	=14px;
+	background-color: lightgray;
+	font-size:14px;
 }
 
 footer #copyright { /* footer 안에 id -># */
@@ -20,8 +20,8 @@ footer #copyright { /* footer 안에 id -># */
 }
 
 footer #sns {
-	margin: 10px 0 0 20px;
-	float: right;
+	margin: 10px 20px 0 0;
+	float: right;/* 참고 clear:both; */
 }
 </style>
 </head>
@@ -32,7 +32,7 @@ footer #sns {
 		
 		<div id="sns">
 			<a href="http://facebook.com" target="_blank"> 
-			<img alt="Facsbook" src="../images/facebook.gif" height="32"></a> 
+			<img alt="Facebook" src="../images/facebook.gif" height="32"></a> <!-- ..은 상위폴더로 이동 -->
 			
 			<a href="http://twitter.com" target="_blank"> 
 			<img alt="Twitter" src="../images/twitter.gif" height="32"></a> 

@@ -5,52 +5,57 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>customer manage</title>
-
 <style>
 caption{
-	font-size:50px;
+	font-size:30px;
 	align:center;
 }
-nav{
-	margin: 0 0 10px 0;
-	padding:0 0 10px 0;
+nav {
+	margin: 0 0 10px 0; /* footer,content 영역간의 간격  */
+	padding: 0 0 10px 0; /* nav 자체의 간격 */
 	float: left;
 	width: 100%;
 	background-color: aqua;
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 14px;
 	font-weight: bold;
-	color: #ff0099;	
+	color: #ff0099;
 }
-nav ul{
+
+nav ul {
 	list-style: none;
 }
-nav ul li{
-	float:left;
-	margin:0 10px;
-	list-style:none;
+
+nav ul li {
+	display:inline; 
+	/* list-style: none;  */
+	float: left;
+	margin: 0 5px;
+	
 }
-nav a{
-	dispaly : block;
-	padding:5px 5px 8px 5px;
-	height : 20px;
+
+nav a {
+	dispaly: block;
+	padding: 5px 5px 8px 5px;
+	height: 20px;
 	text-decoration: none;
-	color:#000000;
+	color: #000000;
 	border-style: hidden hidden solid hidden;
 	border-color: transparent;
 }
-.section{
-	clear:both;
-	height:580px;
-	width:100%;
-	
+
+.section {
+	height: 580px;
+	width: 100%;
 }
-div>img{
-	border:none;
-	height:77%;
-	width:100%;
+
+div>img {
+	border: none;
+	height: 77%;
+	width: 100%;
 }
 </style>
+
 <!-- 자바스크립트는 동작 style밑에  script -->
 
 <script type="text/javascript">
@@ -59,10 +64,12 @@ div>img{
 		if(document.cm.id.value==""){/* id가 공백이면*/
 			alert("ID를 입력하세요.");
 			document.cm.id.focus();/* 경고창 확인 후 커서 위치 */
-		}if(document.cm.password!=document.cm.passsword1){
+		}
+		if(document.cm.password.value != document.cm.password1.value){
 			alert("비밀번호를 다시 확인하세요.");
 			document.cm.password.focus();
 		}
+		document.cm.submit();
 	}
 	/* 아이디중복체크 */
 	function id_chk(){/* id_chk.jsp파일의 매개변수id로 가져온다 cm(폼의 이름)의 아이디 값을  매개변수로  */
@@ -81,16 +88,18 @@ div>img{
 		<li><a href="#">부품정보 등록</a></li>
 		<li><a href="list.jsp">고객정보 목록</a></li>
 		<li><a href="#">부품정보 목록</a></li>
-		<li><a href="#">홈으로</a></li>
+		<li><a href="list.jsp">회원정보 목록</a></li>
+		<li><a href="index.jsp">홈으로</a></li>
 		</ul>
 	</nav>
 
 <div class="section">
 
-<form name="cm" action="member_form_action.jsp">
-
+<form name="cm" action="member_form_action.jsp" method="post"> <!-- action=폼의 내용을 전송할 서버 쪽 스크립트 파일 (DB연결)-->
 <table border=1>
+
 <caption>고객 관리</caption>
+
 <tr align=center>
 <td>아이디</td>
 <td align="left"><input type="text" name="id" size="15" value="" placeholder="kjy61">
@@ -123,7 +132,7 @@ div>img{
 <tr align=center>
 <td>이메일 </td>
 <td align="left">
-<input type="text" name="id2" size="15" value="" placeholder="kjy61">
+<input type="text" name="id2" size="15" value="" >
 @<select name="domain"> 
         <option value="naver.com" selected>naver.com</option> 
         <option value="daum.net" >daum.net</option>
